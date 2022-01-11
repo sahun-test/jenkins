@@ -16,6 +16,9 @@ pipeline {
             }
         }
         stage('Test') {
+            when {
+                changelog ".*sahunCommit.*"
+            }
             steps {
                 build 'job1'
             }
