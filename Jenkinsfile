@@ -4,9 +4,6 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                when {
-                    branch 'master'
-                }
                 build 'job1'
             }
         }
