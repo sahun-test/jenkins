@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                build 'job2'
+                build 'job1'
             }
         }
         stage('Release') {
