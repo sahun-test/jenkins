@@ -4,6 +4,10 @@ pipeline {
     stages {
         stage('build') {
             steps {
+                when {
+                    beforeAgent true
+                    branch 'master'
+                }
                 build 'job1'
             }
         }
