@@ -3,6 +3,9 @@ pipeline {
     triggers{ cron('H/1 * * * *') }
     stages {
         stage('build') {
+            when {
+                branch 'production'
+            }
             steps {
                 build 'job1'
             }
