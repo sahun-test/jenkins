@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Test') {
             when {
-                changelog ".*sahunCommit.*"
+                changelog ".*sahun.*"
             }
             steps {
                 build 'job1'
