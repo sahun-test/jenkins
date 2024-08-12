@@ -1,1 +1,29 @@
+1.
+Create credential using ssh-keygen
+ssh-keygent
 
+Add pub key on authorized_keys
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+
+2. In Jenkins
+Dashboard -> Manage Jenkins -> Credentials
+
+Domains ->	(global) -> Add credentials
+
+Kind = SSH Username with private key
+Enter private key
+
+3.
+
+Dashboard -> New Item -> Pipeline
+
+Discard Old builds -> 5
+
+node {
+  sshagent (credentials: ['deploy-dev']) {
+    sh 'ssh -o StrictHostKeyChecking=no -l cloudbees 192.168.1.106 uname -a'
+  }
+}
+
+
+Save
